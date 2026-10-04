@@ -6,25 +6,34 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@react-three/fiber": "9.2.0",
+    "@elevenlabs/elevenlabs-js": "^2.70.0",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "@react-three/postprocessing": "^3.1.3",
     "@remotion/cli": "4.0.532",
+    "@remotion/google-fonts": "^4.0.532",
     "@remotion/media": "4.0.532",
+    "@remotion/media-utils": "^4.0.532",
     "@remotion/three": "4.0.532",
+    "@remotion/transitions": "^4.0.532",
     "@remotion/zod-types": "4.0.532",
+    "mediabunny": "1.56.1",
+    "postprocessing": "^6.39.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.532",
     "three": "0.178.0",
-    "zod": "4.5.4",
-    "mediabunny": "1.56.1"
+    "zod": "4.5.4"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.532",
     "@types/react": "19.2.7",
     "@types/three": "0.170.0",
     "@types/web": "0.0.166",
+    "dotenv": "^18.0.5",
     "eslint": "9.39.5",
     "prettier": "3.8.1",
+    "tsx": "^4.23.15",
     "typescript": "5.9.3"
   },
   "scripts": {

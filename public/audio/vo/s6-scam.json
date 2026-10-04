@@ -1,0 +1,42 @@
+{
+  "id": "s6-scam",
+  "text": "Scams? Caught before you ever see them.",
+  "duration": 3.04,
+  "words": [
+    {
+      "text": "Scams?",
+      "start": 0,
+      "end": 0.84
+    },
+    {
+      "text": "Caught",
+      "start": 1.04,
+      "end": 1.28
+    },
+    {
+      "text": "before",
+      "start": 1.36,
+      "end": 1.68
+    },
+    {
+      "text": "you",
+      "start": 1.76,
+      "end": 2
+    },
+    {
+      "text": "ever",
+      "start": 2.12,
+      "end": 2.24
+    },
+    {
+      "text": "see",
+      "start": 2.4,
+      "end": 2.56
+    },
+    {
+      "text": "them.",
+      "start": 2.68,
+      "end": 3.04
+    }
+  ]
+}

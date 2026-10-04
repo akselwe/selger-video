@@ -1,0 +1,22 @@
+{
+  "id": "s7-kris",
+  "text": "No, no pets.",
+  "duration": 1.84,
+  "words": [
+    {
+      "text": "No,",
+      "start": 0,
+      "end": 0.8
+    },
+    {
+      "text": "no",
+      "start": 0.96,
+      "end": 1.04
+    },
+    {
+      "text": "pets.",
+      "start": 1.12,
+      "end": 1.84
+    }
+  ]
+}

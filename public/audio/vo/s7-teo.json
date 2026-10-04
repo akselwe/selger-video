@@ -1,0 +1,107 @@
+{
+  "id": "s7-teo",
+  "text": "Hi Kris, it's Teo. A buyer is asking if the chair has been in a home with pets. Has it?",
+  "duration": 6.16,
+  "words": [
+    {
+      "text": "Hi",
+      "start": 0,
+      "end": 0.16
+    },
+    {
+      "text": "Kris,",
+      "start": 0.24,
+      "end": 0.72
+    },
+    {
+      "text": "it's",
+      "start": 0.8,
+      "end": 0.96
+    },
+    {
+      "text": "Teo.",
+      "start": 1.08,
+      "end": 1.36
+    },
+    {
+      "text": "A",
+      "start": 1.92,
+      "end": 2
+    },
+    {
+      "text": "buyer",
+      "start": 2.08,
+      "end": 2.32
+    },
+    {
+      "text": "is",
+      "start": 2.4,
+      "end": 2.48
+    },
+    {
+      "text": "asking",
+      "start": 2.56,
+      "end": 2.96
+    },
+    {
+      "text": "if",
+      "start": 3.04,
+      "end": 3.12
+    },
+    {
+      "text": "the",
+      "start": 3.16,
+      "end": 3.2
+    },
+    {
+      "text": "chair",
+      "start": 3.28,
+      "end": 3.52
+    },
+    {
+      "text": "has",
+      "start": 3.6,
+      "end": 3.68
+    },
+    {
+      "text": "been",
+      "start": 3.76,
+      "end": 3.84
+    },
+    {
+      "text": "in",
+      "start": 3.92,
+      "end": 4
+    },
+    {
+      "text": "a",
+      "start": 4.04,
+      "end": 4.08
+    },
+    {
+      "text": "home",
+      "start": 4.16,
+      "end": 4.32
+    },
+    {
+      "text": "with",
+      "start": 4.4,
+      "end": 4.48
+    },
+    {
+      "text": "pets.",
+      "start": 4.64,
+      "end": 5.32
+    },
+    {
+      "text": "Has",
+      "start": 5.52,
+      "end": 5.68
+    },
+    {
+      "text": "it?",
+      "start": 5.76,
+      "end": 6.16
+    }
+  ]
+}

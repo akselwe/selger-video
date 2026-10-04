@@ -1,0 +1,22 @@
+{
+  "id": "s7-bye",
+  "text": "Perfect, thanks. Bye.",
+  "duration": 2,
+  "words": [
+    {
+      "text": "Perfect,",
+      "start": 0,
+      "end": 0.8
+    },
+    {
+      "text": "thanks.",
+      "start": 1,
+      "end": 1.36
+    },
+    {
+      "text": "Bye.",
+      "start": 1.52,
+      "end": 2
+    }
+  ]
+}

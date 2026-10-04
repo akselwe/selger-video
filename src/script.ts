@@ -1,8 +1,8 @@
 // The spoken script. `text` is what captions show; `tts` (optional) is what the voice reads.
 export const VOICES = {
   narrator: "nPczCjzI2devNBz1zQrb", // Brian: deep, resonant
-  selger: "EXAVITQu4vr4xnSDxMaL", // Sarah: mature, reassuring
-  seller: "iP95p4xoKVk53GoZ742B", // Chris: casual, down-to-earth
+  teo: "cjVigY5qzO86Huf0OWal", // Eric: smooth, trustworthy. Teo, the Selger agent on the phone
+  kris: "iP95p4xoKVk53GoZ742B", // Chris: casual, down-to-earth. Kris, the seller
 } as const;
 
 export type Line = {
@@ -48,13 +48,13 @@ export const LINES: Line[] = [
     seed: 7,
   },
   {
-    id: "s7-call",
-    voiceId: VOICES.selger,
-    text: "Hi, it's Selger. Ola offers 1,650, shipped. That's just under your target. Should I take it?",
-    tts: "Hi, it's Selger. Ola offers sixteen-fifty, shipped. That's just under your target. Should I take it?",
-    seed: 3,
+    id: "s7-teo",
+    voiceId: VOICES.teo,
+    text: "Hi Kris, it's Teo. A buyer is asking if the chair has been in a home with pets. Has it?",
+    seed: 5,
   },
-  { id: "s7-reply", voiceId: VOICES.seller, text: "Yeah, take it.", seed: 3 },
+  { id: "s7-kris", voiceId: VOICES.kris, text: "No, no pets.", seed: 5 },
+  { id: "s7-bye", voiceId: VOICES.teo, text: "Perfect, thanks. Bye.", seed: 5 },
   {
     id: "s8-sold",
     voiceId: VOICES.narrator,
@@ -62,4 +62,11 @@ export const LINES: Line[] = [
     seed: 7,
   },
   { id: "s9-punch", voiceId: VOICES.narrator, text: "Selger. Point. Shoot. Sold.", seed: 7 },
+  // After the hook video: Teo calls Kris on stage.
+  {
+    id: "t1-teo",
+    voiceId: VOICES.teo,
+    text: "Hey Kris, it's your Selger agent, Teo. Let's show these folks that this actually works, and isn't just a wannabe-fancy AI video.",
+    seed: 5,
+  },
 ];

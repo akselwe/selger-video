@@ -33,23 +33,23 @@ const ms = (id: string) => {
 if (what === "all" || what === "music") {
   const dir = join(process.cwd(), "public", "audio", "music");
   mkdirSync(dir, { recursive: true });
-  const base = ["cinematic electronic", "instrumental", "dark synthwave", "modern tech launch trailer", "deep sub bass", "crisp percussion", "high production value"];
-  const noVocals = ["vocals", "singing", "choir", "lyrics", "speech"];
+  const base = ["fast tempo electronic", "128 bpm", "driving", "energetic tech launch trailer", "punchy drums", "pulsing synth bass", "instrumental", "high production value"];
+  const noVocals = ["vocals", "singing", "choir", "lyrics", "speech", "slow", "ambient intro"];
   const chunks = [
-    { text: "[Intro]\nNear silence. A single low pulse and a soft high tone. Tension.", durationMs: ms("hook"), positiveStyles: base, negativeStyles: noVocals },
-    { text: "[Build]\nA ticking pulse starts, clean arpeggiated synth enters, steady and curious.", durationMs: ms("film") + ms("see"), positiveStyles: ["arpeggiated synth", "pulsing", "building", "curious"], negativeStyles: noVocals },
-    { text: "[Build 2]\nKick drum enters, the arpeggio rises, more momentum, confident.", durationMs: ms("price") + ms("list"), positiveStyles: ["four on the floor kick", "rising", "momentum", "confident"], negativeStyles: noVocals },
-    { text: "[Drop]\nFull energy. Driving drums, wide synth stabs, punchy bass. Fast and exciting.", durationMs: ms("negotiate"), positiveStyles: ["driving drums", "big synth stabs", "energetic", "intense", "wide stereo"], negativeStyles: noVocals },
-    { text: "[Breakdown]\nPull back to a soft pad and a gentle pulse. Calm, intimate, room to breathe.", durationMs: ms("call"), positiveStyles: ["ambient pad", "minimal", "calm", "intimate"], negativeStyles: [...noVocals, "drums"] },
-    { text: "[Lift]\nRising snare roll and swelling synths, triumphant build.", durationMs: ms("sold"), positiveStyles: ["snare roll", "swell", "triumphant", "uplifting"], negativeStyles: noVocals },
-    { text: "[Finale]\nOne huge cinematic hit, then a long ringing tail fading out.", durationMs: ms("punch"), positiveStyles: ["cinematic impact", "big hit", "reverb tail", "resolution"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("hook"), positiveStyles: ["ticking hi-hats", "tense riser", "sub bass pulse", "128 bpm"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("film") + ms("see"), positiveStyles: ["kick drum enters immediately", "fast arpeggiated synth", "128 bpm", "momentum"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("price") + ms("list"), positiveStyles: ["full drums", "rolling bassline", "rising energy", "128 bpm"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("negotiate"), positiveStyles: ["peak energy drop", "driving four on the floor", "big synth stabs", "fast", "intense", "128 bpm"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("call"), positiveStyles: ["filtered groove", "kick and hats keep going", "lighter", "128 bpm"], negativeStyles: [...noVocals, "silence"] },
+    { text: "[Instrumental]", durationMs: ms("sold"), positiveStyles: ["snare roll build", "rising", "triumphant", "128 bpm"], negativeStyles: noVocals },
+    { text: "[Instrumental]", durationMs: ms("punch"), positiveStyles: ["one huge final hit", "cinematic impact", "short reverb tail"], negativeStyles: noVocals },
   ];
   const audio = await post(`https://api.elevenlabs.io/v1/music?output_format=${FORMAT}`, {
     model_id: "music_v2_5",
     composition_plan: {
       chunks: chunks.map((c, i) => ({
         // Text is sung as lyrics, so only an instrumental marker goes here; the mood lives in the styles.
-        text: "[Instrumental]",
+        text: c.text,
         duration_ms: c.durationMs,
         positive_styles: i === 0 ? [...base, ...c.positiveStyles] : c.positiveStyles,
         negative_styles: c.negativeStyles,
@@ -57,7 +57,7 @@ if (what === "all" || what === "music") {
       })),
     },
   });
-  writeFileSync(join(dir, "bed.mp3"), audio);
+  writeFileSync(join(dir, process.env.MUSIC_OUT ?? "bed.mp3"), audio);
   console.log(`music: bed.mp3 ${(audio.length / 1024).toFixed(0)} kB`);
 }
 
@@ -73,6 +73,13 @@ const SFX: { id: string; text: string; duration: number; influence?: number }[] 
   { id: "chime", text: "Bright satisfying success chime, cash register meets modern UI, short", duration: 1.0 },
   { id: "collapse", text: "Reverse whoosh sucking everything into one point, rising, ends abruptly", duration: 1.6 },
   { id: "boom", text: "Deep cinematic sub boom impact with a long dark tail, trailer logo hit", duration: 3.0 },
+  { id: "swish", text: "Very fast clean whoosh swish for a video transition cut, short and punchy", duration: 0.5 },
+  { id: "ping", text: "Single smartphone message notification ping, short, slightly annoying, close", duration: 0.5 },
+  { id: "buzz", text: "Phone vibrating on a wooden table, one short double buzz", duration: 0.7 },
+  { id: "tick", text: "Slow wall clock ticking in a quiet empty room, dull and boring", duration: 9.5, influence: 0.7 },
+  { id: "boring", text: "Abrupt record scratch stop followed by one deep dull bass thud, comedic", duration: 1.4 },
+  { id: "parcel", text: "Cardboard parcel dropped into a metal mailbox, soft thud and lid clank", duration: 1.0 },
+  { id: "deliver", text: "Soft positive delivery confirmation chime, modern UI", duration: 0.8 },
 ];
 
 if (what === "all" || what === "sfx") {

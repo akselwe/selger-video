@@ -1,7 +1,7 @@
 {
   "id": "s4-price",
   "text": "It checks what it's really worth. You set the floor. It aims higher.",
-  "duration": 4.96,
+  "duration": 4.56,
   "words": [
     {
       "text": "It",
@@ -11,62 +11,62 @@
     {
       "text": "checks",
       "start": 0.24,
-      "end": 0.56
+      "end": 0.48
     },
     {
       "text": "what",
-      "start": 0.64,
-      "end": 0.72
+      "start": 0.56,
+      "end": 0.64
     },
     {
       "text": "it's",
-      "start": 0.76,
-      "end": 1.04
+      "start": 0.72,
+      "end": 0.88
     },
     {
       "text": "really",
-      "start": 1.2,
-      "end": 1.36
+      "start": 0.96,
+      "end": 1.28
     },
     {
       "text": "worth.",
-      "start": 1.56,
-      "end": 2
+      "start": 1.48,
+      "end": 1.88
     },
     {
       "text": "You",
-      "start": 2.24,
-      "end": 2.4
+      "start": 2.08,
+      "end": 2.24
     },
     {
       "text": "set",
-      "start": 2.48,
-      "end": 2.64
+      "start": 2.32,
+      "end": 2.4
     },
     {
       "text": "the",
-      "start": 2.72,
-      "end": 2.8
+      "start": 2.48,
+      "end": 2.56
     },
     {
       "text": "floor.",
-      "start": 3,
-      "end": 3.68
+      "start": 2.64,
+      "end": 3.24
     },
     {
       "text": "It",
-      "start": 3.76,
-      "end": 3.84
+      "start": 3.44,
+      "end": 3.6
     },
     {
       "text": "aims",
-      "start": 3.92,
-      "end": 4.24
+      "start": 3.68,
+      "end": 3.92
     },
     {
       "text": "higher.",
-      "start": 4.44,
-      "end": 4.96
+      "start": 4.12,
+      "end": 4.64
     }
   ]
 }

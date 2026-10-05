@@ -1,27 +1,27 @@
 {
   "id": "s9-punch",
   "text": "Selger. Point. Shoot. Sold.",
-  "duration": 3.36,
+  "duration": 3.2,
   "words": [
     {
       "text": "Selger.",
       "start": 0,
-      "end": 0.8
+      "end": 0.56
     },
     {
       "text": "Point.",
-      "start": 1.04,
-      "end": 1.64
+      "start": 0.96,
+      "end": 1.36
     },
     {
       "text": "Shoot.",
-      "start": 1.84,
-      "end": 2.24
+      "start": 1.76,
+      "end": 2.16
     },
     {
       "text": "Sold.",
-      "start": 2.64,
-      "end": 3.36
+      "start": 2.56,
+      "end": 3.28
     }
   ]
 }

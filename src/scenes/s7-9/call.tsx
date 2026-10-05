@@ -73,7 +73,7 @@ export const Words: React.FC<{
             display: "inline-block",
             transform: `translateY(${(1 - o) * 8}px)`,
             filter: o < 1 ? `blur(${(1 - o) * 4}px)` : undefined,
-            color: hl > 0 ? (soft ? C.mark : hl > 0.5 ? C.onMark : C.ink) : fresh > 0.01 ? mix(activeColor, color, 1 - fresh) : color,
+            color: hl > 0 ? (soft ? C.mark : hl > 0.97 ? C.onMark : C.ink) : fresh > 0.01 ? mix(activeColor, color, 1 - fresh) : color,
             backgroundImage: w.hl ? `linear-gradient(${soft ? C.markSoft : C.mark}, ${soft ? C.markSoft : C.mark})` : undefined,
             backgroundSize: `${hl * 100}% 100%`,
             backgroundRepeat: "no-repeat",

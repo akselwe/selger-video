@@ -1,0 +1,22 @@
+{
+  "id": "r1-recap",
+  "text": "Pointed. Shot. Sold.",
+  "duration": 2.56,
+  "words": [
+    {
+      "text": "Pointed.",
+      "start": 0,
+      "end": 0.56
+    },
+    {
+      "text": "Shot.",
+      "start": 0.96,
+      "end": 1.6
+    },
+    {
+      "text": "Sold.",
+      "start": 1.84,
+      "end": 2.56
+    }
+  ]
+}

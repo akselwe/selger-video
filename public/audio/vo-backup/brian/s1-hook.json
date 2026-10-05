@@ -1,0 +1,47 @@
+{
+  "id": "s1-hook",
+  "text": "Selling your old stuff is a second job.",
+  "duration": 2.72,
+  "words": [
+    {
+      "text": "Selling",
+      "start": 0,
+      "end": 0.4
+    },
+    {
+      "text": "your",
+      "start": 0.48,
+      "end": 0.56
+    },
+    {
+      "text": "old",
+      "start": 0.64,
+      "end": 0.8
+    },
+    {
+      "text": "stuff",
+      "start": 0.88,
+      "end": 1.28
+    },
+    {
+      "text": "is",
+      "start": 1.36,
+      "end": 1.44
+    },
+    {
+      "text": "a",
+      "start": 1.52,
+      "end": 1.6
+    },
+    {
+      "text": "second",
+      "start": 1.68,
+      "end": 1.92
+    },
+    {
+      "text": "job.",
+      "start": 2.08,
+      "end": 2.72
+    }
+  ]
+}

@@ -121,7 +121,11 @@ export const Problem: React.FC = () => {
     return (
       <AbsoluteFill style={{ backgroundColor: C.void, justifyContent: "center", alignItems: "center" }}>
         <Sequence from={BORING} layout="none">
-          <Audio src={staticFile("audio/sfx/boring.mp3")} volume={1} />
+          <Audio src={staticFile("audio/sfx/boring.mp3")} volume={0.85} />
+        </Sequence>
+        {/* The narrator says it as the word lands. */}
+        <Sequence from={BORING + 2} layout="none">
+          <Audio src={staticFile("audio/vo/b1-boring.mp3")} volume={1} />
         </Sequence>
         <div style={{ opacity: vis * out, transform: `translate(${shake}px, ${shake * 0.4}px) scale(${slam})`, position: "relative" }}>
           <svg

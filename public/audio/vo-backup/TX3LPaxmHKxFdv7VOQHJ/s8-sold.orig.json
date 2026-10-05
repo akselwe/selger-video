@@ -1,0 +1,62 @@
+{
+  "id": "s8-sold",
+  "text": "Sold. Delisted everywhere else. You just drop it in the mailbox.",
+  "duration": 4.8,
+  "words": [
+    {
+      "text": "Sold.",
+      "start": 0,
+      "end": 0.8
+    },
+    {
+      "text": "Delisted",
+      "start": 1.04,
+      "end": 1.6
+    },
+    {
+      "text": "everywhere",
+      "start": 1.76,
+      "end": 2.16
+    },
+    {
+      "text": "else.",
+      "start": 2.24,
+      "end": 2.76
+    },
+    {
+      "text": "You",
+      "start": 2.96,
+      "end": 3.04
+    },
+    {
+      "text": "just",
+      "start": 3.12,
+      "end": 3.28
+    },
+    {
+      "text": "drop",
+      "start": 3.36,
+      "end": 3.6
+    },
+    {
+      "text": "it",
+      "start": 3.64,
+      "end": 3.68
+    },
+    {
+      "text": "in",
+      "start": 3.72,
+      "end": 3.76
+    },
+    {
+      "text": "the",
+      "start": 3.8,
+      "end": 3.84
+    },
+    {
+      "text": "mailbox.",
+      "start": 3.92,
+      "end": 4.8
+    }
+  ]
+}

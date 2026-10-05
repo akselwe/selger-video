@@ -21,16 +21,16 @@ export const TOTAL_SECONDS = SCENES[SCENES.length - 1].end;
 export const VO_AT: Record<string, number> = {
   "s1-hook": 0.6,
   "s2-film": 3.75,
-  "s3-see": 7.45,
-  "s4-price": 13.15,
-  "s5-list": 18.45,
-  "s6-negotiate": 22.7,
+  "s3-see": 7.77,
+  "s4-price": 13.51,
+  "s5-list": 18.53,
+  "s6-negotiate": 23.2,
   "s6-scam": 33.4,
   "s7-teo": 37.9,
   "s7-kris": 44.3,
   "s7-bye": 46.25,
-  "s8-sold": 48.6,
-  "s9-punch": 57.2,
+  "s8-sold": 48.8,
+  "s9-punch": 57.28,
 };
 
 // Sound effects: absolute start time in seconds.
@@ -62,7 +62,15 @@ export const sceneFrames = (id: SceneId) => {
 
 // After the hook video: the transition call (Teo calls Kris on stage) and the live demo slot.
 export const TRANSITION = { ringAt: 0.1, teoAt: 1.3, seconds: 10.4 } as const;
-export const DEMO_SECONDS = 97;
+export const DEMO_SECONDS = 79; // Kris 10.5 s + app 18.5 s + whole sale 42 s (sped up) + under the hood 8 s
+
+// After the demo, before the outro: the punchline again in the past tense ("Pointed. Shot. Sold.").
+export const RECAP_SECONDS = 4.0;
+export const RECAP_VO_AT = 0.35;
+
+// After the demo: Selger in your own chat tool over MCP (narration o1-outro at OUTRO_VO_AT).
+export const OUTRO_SECONDS = 14;
+export const OUTRO_VO_AT = 0.6;
 
 // Before the hook video: the problem (a boring chair in a corner, buyer messages piling up), then "Boring."
 // Self-contained composition with its own audio. Keep the whole presentation at 3 minutes or less.

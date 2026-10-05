@@ -1,0 +1,52 @@
+{
+  "id": "s2-film",
+  "text": "Meet Selger. Just film what you want to sell.",
+  "duration": 3.12,
+  "words": [
+    {
+      "text": "Meet",
+      "start": 0,
+      "end": 0.24
+    },
+    {
+      "text": "Selger.",
+      "start": 0.32,
+      "end": 1.04
+    },
+    {
+      "text": "Just",
+      "start": 1.28,
+      "end": 1.52
+    },
+    {
+      "text": "film",
+      "start": 1.6,
+      "end": 1.84
+    },
+    {
+      "text": "what",
+      "start": 1.92,
+      "end": 2
+    },
+    {
+      "text": "you",
+      "start": 2.08,
+      "end": 2.16
+    },
+    {
+      "text": "want",
+      "start": 2.2,
+      "end": 2.24
+    },
+    {
+      "text": "to",
+      "start": 2.32,
+      "end": 2.4
+    },
+    {
+      "text": "sell.",
+      "start": 2.48,
+      "end": 3.12
+    }
+  ]
+}

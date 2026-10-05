@@ -1,7 +1,7 @@
 {
   "id": "s3-see",
   "text": "It picks the sharpest frames, cleans up the photos, and finds the exact model.",
-  "duration": 5.2,
+  "duration": 4.88,
   "words": [
     {
       "text": "It",
@@ -20,58 +20,58 @@
     },
     {
       "text": "sharpest",
-      "start": 0.72,
+      "start": 0.64,
       "end": 1.04
     },
     {
       "text": "frames,",
       "start": 1.12,
-      "end": 1.92
+      "end": 1.84
     },
     {
       "text": "cleans",
-      "start": 2,
-      "end": 2.32
+      "start": 1.92,
+      "end": 2.16
     },
     {
       "text": "up",
-      "start": 2.36,
+      "start": 2.2,
+      "end": 2.24
+    },
+    {
+      "text": "the",
+      "start": 2.32,
       "end": 2.4
     },
     {
-      "text": "the",
-      "start": 2.48,
-      "end": 2.56
-    },
-    {
       "text": "photos,",
-      "start": 2.64,
-      "end": 3.28
+      "start": 2.48,
+      "end": 2.96
     },
     {
       "text": "and",
-      "start": 3.36,
-      "end": 3.44
+      "start": 3.04,
+      "end": 3.12
     },
     {
       "text": "finds",
-      "start": 3.52,
-      "end": 3.84
+      "start": 3.2,
+      "end": 3.52
     },
     {
       "text": "the",
-      "start": 3.88,
-      "end": 3.92
+      "start": 3.56,
+      "end": 3.6
     },
     {
       "text": "exact",
-      "start": 4,
-      "end": 4.48
+      "start": 3.68,
+      "end": 4.24
     },
     {
       "text": "model.",
-      "start": 4.56,
-      "end": 5.2
+      "start": 4.32,
+      "end": 4.96
     }
   ]
 }

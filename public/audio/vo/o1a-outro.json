@@ -1,0 +1,22 @@
+{
+  "id": "o1a-outro",
+  "text": "Not sold yet?",
+  "duration": 1.04,
+  "words": [
+    {
+      "text": "Not",
+      "start": 0,
+      "end": 0.24
+    },
+    {
+      "text": "sold",
+      "start": 0.32,
+      "end": 0.56
+    },
+    {
+      "text": "yet?",
+      "start": 0.72,
+      "end": 1.12
+    }
+  ]
+}

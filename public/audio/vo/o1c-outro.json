@@ -1,0 +1,32 @@
+{
+  "id": "o1c-outro",
+  "text": "And give it a try.",
+  "duration": 1.28,
+  "words": [
+    {
+      "text": "And",
+      "start": 0,
+      "end": 0.24
+    },
+    {
+      "text": "give",
+      "start": 0.4,
+      "end": 0.48
+    },
+    {
+      "text": "it",
+      "start": 0.52,
+      "end": 0.56
+    },
+    {
+      "text": "a",
+      "start": 0.64,
+      "end": 0.68
+    },
+    {
+      "text": "try.",
+      "start": 0.72,
+      "end": 1.36
+    }
+  ]
+}

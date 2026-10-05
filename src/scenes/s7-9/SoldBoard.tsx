@@ -10,8 +10,8 @@ import { at, lerp, prog } from "./common";
 export const F8 = at(48.4);
 export const S8_DUR = 246; // 48.4–56.6 s
 export const LAND = F8(48.45); // chime
-const EBAY_FLIP = F8(49.64); // "Delisted"
-const TISE_FLIP = F8(50.36); // "everywhere"
+const EBAY_FLIP = F8(49.68); // "Delisted"
+const TISE_FLIP = F8(50.32); // "everywhere"
 const STAT_AT = 64;
 
 const SOLD_W = 760;

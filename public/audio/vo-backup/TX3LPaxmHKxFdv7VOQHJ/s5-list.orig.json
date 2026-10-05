@@ -1,0 +1,52 @@
+{
+  "id": "s5-list",
+  "text": "Then it lists everywhere. Even where there's no API.",
+  "duration": 3.68,
+  "words": [
+    {
+      "text": "Then",
+      "start": 0,
+      "end": 0.24
+    },
+    {
+      "text": "it",
+      "start": 0.32,
+      "end": 0.4
+    },
+    {
+      "text": "lists",
+      "start": 0.6,
+      "end": 0.8
+    },
+    {
+      "text": "everywhere.",
+      "start": 0.88,
+      "end": 1.68
+    },
+    {
+      "text": "Even",
+      "start": 1.92,
+      "end": 2.16
+    },
+    {
+      "text": "where",
+      "start": 2.24,
+      "end": 2.32
+    },
+    {
+      "text": "there's",
+      "start": 2.4,
+      "end": 2.56
+    },
+    {
+      "text": "no",
+      "start": 2.64,
+      "end": 2.8
+    },
+    {
+      "text": "A.P.I.",
+      "start": 2.88,
+      "end": 3.68
+    }
+  ]
+}

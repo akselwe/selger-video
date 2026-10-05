@@ -14,10 +14,12 @@ import { S7Call } from "./scenes/S7Call";
 import { S8Sold } from "./scenes/S8Sold";
 import { S9Punch } from "./scenes/S9Punch";
 import { DemoSlot } from "./scenes/DemoSlot";
+import { Outro } from "./scenes/Outro";
+import { Recap } from "./scenes/Recap";
 import { Transition } from "./scenes/Transition";
-import { Hook, HOOK_FRAMES, Presentation, PRESENTATION_FRAMES } from "./Presentation";
+import { Hook, HOOK_FRAMES, Presentation, PRESENTATION_FRAMES, Stage as StageCut, STAGE_FRAMES } from "./Presentation";
 import { SelgerVideo } from "./SelgerVideo";
-import { DEMO_SECONDS, FPS, sceneFrames, sec, TOTAL_SECONDS, TRANSITION, type SceneId } from "./timing";
+import { DEMO_SECONDS, FPS, OUTRO_SECONDS, RECAP_SECONDS, sceneFrames, sec, TOTAL_SECONDS, TRANSITION, type SceneId } from "./timing";
 
 const scene = (id: string, sceneId: SceneId, component: React.FC) => (
   <Composition
@@ -42,6 +44,7 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
       />
       <Composition id="Hook" component={Hook} fps={FPS} durationInFrames={HOOK_FRAMES} width={1920} height={1080} />
+      <Composition id="Stage" component={StageCut} fps={FPS} durationInFrames={STAGE_FRAMES} width={1920} height={1080} />
       <Composition
         id="Presentation"
         component={Presentation}
@@ -76,6 +79,8 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{}}
       />
+      <Composition id="Recap" component={Recap} fps={FPS} durationInFrames={sec(RECAP_SECONDS)} width={1920} height={1080} />
+      <Composition id="Outro" component={Outro} fps={FPS} durationInFrames={sec(OUTRO_SECONDS)} width={1920} height={1080} />
       <Folder name="Scenes">
         {scene("S1-Hook", "hook", S1Hook)}
         {scene("S2-Film", "film", S2Film)}

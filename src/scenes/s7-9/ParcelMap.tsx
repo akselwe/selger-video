@@ -16,8 +16,8 @@ import { CheckGlyph, Ripple, at, lerp, prog } from "./common";
 
 const F8 = at(48.4);
 export const MAP_IN = F8(51.2); // 84: whip into the map
-const DIVE_END = 108;
-const DROP = F8(51.96); // 107: parcel appears over the mailbox
+const DIVE_END = 104;
+const DROP = F8(51.8); // 102: parcel appears over the mailbox ("drop" 51.76)
 export const MAILBOX = F8(52.52); // 124: in the mailbox
 export const PARCEL_SFX = F8(52.5); // 123
 const LIFT = F8(52.9); // 135
@@ -33,18 +33,18 @@ const mid = oslo.clone().lerp(bergen, 0.5);
 const v = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 
 // Kris's mailbox stands right of the house, toward the camera.
-const MAILBOX_AT = oslo.clone().add(v(0.2, 0, 0.13));
-const SLOT = MAILBOX_AT.clone().add(v(0, 0.112, 0));
+const MAILBOX_AT = oslo.clone().add(v(0.13, 0, 0.09));
+const SLOT = MAILBOX_AT.clone().add(v(0, 0.075, 0));
 // Ola's doorstep.
-const DOOR = bergen.clone().add(v(0, 0.012, 0.16));
-const ROUTE = arcBetween(SLOT.clone().add(v(0, 0.06, 0)), DOOR, 0.3);
+const DOOR = bergen.clone().add(v(0, 0.008, 0.1));
+const ROUTE = arcBetween(SLOT.clone().add(v(0, 0.05, 0)), DOOR, 0.3);
 
 // ---------- camera ----------
 type Key = { f: number; pos: THREE.Vector3; look: THREE.Vector3 };
 const KEYS: Key[] = [
   { f: MAP_IN, pos: mid.clone().add(v(0.9, 4.6, 3.4)), look: mid.clone().add(v(0.3, 0, -0.4)) },
-  { f: DIVE_END, pos: oslo.clone().add(v(0.46, 0.36, 0.84)), look: oslo.clone().add(v(0.08, 0.08, 0.04)) },
-  { f: LIFT, pos: oslo.clone().add(v(0.34, 0.3, 0.68)), look: oslo.clone().add(v(0.1, 0.08, 0.06)) },
+  { f: DIVE_END, pos: oslo.clone().add(v(0.3, 0.24, 0.56)), look: oslo.clone().add(v(0.05, 0.05, 0.03)) },
+  { f: LIFT, pos: oslo.clone().add(v(0.22, 0.2, 0.46)), look: oslo.clone().add(v(0.07, 0.05, 0.04)) },
   { f: LAND_AT - 4, pos: mid.clone().add(v(0.2, 1.3, 2.0)), look: mid.clone().add(v(-0.05, 0.12, 0)) },
   { f: END, pos: mid.clone().add(v(-0.12, 1.08, 1.7)), look: mid.clone().lerp(bergen, 0.35).add(v(0, 0.1, 0)) },
 ];
@@ -86,13 +86,13 @@ const parcelState = (frame: number) => {
     const appear = prog(frame, DROP, 6, Easing.out(Easing.back(2)));
     const fall = interpolate(frame, [DROP + 4, MAILBOX - 1], [0, 1], { ...clamp, easing: Easing.in(Easing.quad) });
     const sink = interpolate(frame, [MAILBOX - 3, MAILBOX + 1], [1, 0], clamp);
-    const pos = SLOT.clone().add(v(0, lerp(0.14, 0.0, fall), 0));
+    const pos = SLOT.clone().add(v(0, lerp(0.1, 0.0, fall), 0));
     return { pos, scale: appear * sink, spin: 0.4 + fall * 0.6, t: 0 };
   }
   // Lift out, fly the arc, land.
   const out = prog(frame, LIFT, 8);
   if (frame < FLY) {
-    return { pos: SLOT.clone().add(v(0, out * 0.06, 0)), scale: out, spin: 1, t: 0 };
+    return { pos: SLOT.clone().add(v(0, out * 0.05, 0)), scale: out, spin: 1, t: 0 };
   }
   const t = interpolate(frame, [FLY, LAND_AT], [0, 1], { ...clamp, easing: Easing.bezier(0.45, 0, 0.35, 1) });
   return { pos: ROUTE.getPoint(t), scale: 1, spin: 1 + t * 5, t };
@@ -103,7 +103,7 @@ const Parcel: React.FC<{ frame: number }> = ({ frame }) => {
   if (s.scale <= 0.001) return null;
   const flying = frame >= LIFT && frame < LAND_AT + 2;
   return (
-    <group position={s.pos} scale={s.scale} rotation={[0, s.spin, flying ? Math.sin(frame * 0.3) * 0.15 : 0]}>
+    <group position={s.pos} scale={s.scale * 0.7} rotation={[0, s.spin, flying ? Math.sin(frame * 0.3) * 0.15 : 0]}>
       <mesh position={[0, 0.016, 0]}>
         <boxGeometry args={[0.05, 0.032, 0.04]} />
         <meshStandardMaterial color={C.oak} roughness={0.85} />
@@ -142,19 +142,19 @@ const Mailbox: React.FC<{ frame: number }> = ({ frame }) => {
   const lit = interpolate(frame, [MAILBOX - 2, MAILBOX + 2, LIFT + 10, LIFT + 30], [0, 1, 1, 0.25], clamp);
   return (
     <group position={MAILBOX_AT}>
-      <mesh position={[0, 0.045, 0]}>
-        <cylinderGeometry args={[0.005, 0.005, 0.09, 8]} />
+      <mesh position={[0, 0.03, 0]}>
+        <cylinderGeometry args={[0.0035, 0.0035, 0.06, 8]} />
         <meshStandardMaterial color={C.lineStrong} roughness={0.6} />
       </mesh>
-      <mesh position={[0, 0.1, 0]}>
-        <boxGeometry args={[0.06, 0.04, 0.045]} />
+      <mesh position={[0, 0.066, 0]}>
+        <boxGeometry args={[0.042, 0.028, 0.032]} />
         <meshStandardMaterial color={C.ink2} emissive={C.mark} emissiveIntensity={lit * 1.4} roughness={0.5} />
       </mesh>
-      <mesh position={[0, 0.112, 0.0232]}>
-        <planeGeometry args={[0.036, 0.006]} />
+      <mesh position={[0, 0.074, 0.0165]}>
+        <planeGeometry args={[0.026, 0.0045]} />
         <meshBasicMaterial color={C.void} />
       </mesh>
-      <Glow position={[0, 0.1, 0.02]} size={0.32} color={C.mark} opacity={lit * 0.85} />
+      <Glow position={[0, 0.066, 0.016]} size={0.24} color={C.mark} opacity={lit * 0.85} />
     </group>
   );
 };
@@ -167,19 +167,19 @@ export const MapStage: React.FC<{ frame: number }> = ({ frame }) => {
       <CameraRig frame={frame} />
       <ambientLight intensity={0.25} />
       <NorwayTerrain />
-      <House place={PLACES.oslo} scale={2} windowGlow={0.7} beacon={false} />
-      <House place={PLACES.bergen} scale={1.6} windowGlow={0.5 + landed * 0.5} beacon={false} />
+      <House place={PLACES.oslo} scale={1.2} windowGlow={0.7} beacon={false} />
+      <House place={PLACES.bergen} scale={1.1} windowGlow={0.5 + landed * 0.5} beacon={false} />
       <Glow position={[bergen.x, bergen.y + 0.1, bergen.z]} size={0.6 + landed * 0.8} color={C.agent} opacity={0.15 + landed * 0.5} />
       <Glow position={[oslo.x, oslo.y + 0.1, oslo.z]} size={0.7} color={C.agent} opacity={0.18} />
       <Mailbox frame={frame} />
       <Trail frame={frame} />
       <Parcel frame={frame} />
       <group position={DOOR} rotation={[-Math.PI / 2, 0, 0]}>
-        <Ripple progress={(frame - LAND_AT) / 30} from={0.02} to={0.5} opacity={0.8} width={0.008} />
-        <Ripple progress={(frame - LAND_AT - 6) / 34} from={0.02} to={0.4} opacity={0.5} width={0.006} />
+        <Ripple progress={(frame - LAND_AT) / 30} from={0.02} to={0.3} opacity={0.7} width={0.006} />
+        <Ripple progress={(frame - LAND_AT - 6) / 34} from={0.02} to={0.22} opacity={0.45} width={0.005} />
       </group>
       <group position={SLOT} rotation={[-Math.PI / 2, 0, 0]}>
-        <Ripple progress={(frame - MAILBOX) / 26} from={0.02} to={0.25} opacity={0.7} color={C.mark} width={0.005} />
+        <Ripple progress={(frame - MAILBOX) / 26} from={0.02} to={0.16} opacity={0.7} color={C.mark} width={0.004} />
       </group>
     </Stage>
   );
@@ -192,13 +192,13 @@ const ShipChip: React.FC<{ frame: number }> = ({ frame }) => {
   const show = interpolate(frame, [DROP - 2, DROP + 10, LIFT + 4, LIFT + 16], [0, 1, 1, 0], clamp);
   if (show <= 0) return null;
   const mark = prog(frame, MAILBOX - 2, 8);
-  const anchor = project(MAILBOX_AT.clone().add(v(0, 0.12, 0)), frame);
-  const L = 1200;
-  const T = 230;
+  const anchor = project(MAILBOX_AT.clone().add(v(0, 0.082, 0)), frame);
+  const L = 1236;
+  const T = 590;
   return (
     <>
       <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, opacity: show }}>
-        <path d={`M ${L} ${T + 80} L ${anchor.x + 14} ${anchor.y - 10}`} stroke={C.lineStrong} strokeWidth={1.5} strokeDasharray="4 5" fill="none" />
+        <path d={`M ${L} ${T + 60} L ${anchor.x + 14} ${anchor.y - 10}`} stroke={C.lineStrong} strokeWidth={1.5} strokeDasharray="4 5" fill="none" />
         <circle cx={anchor.x + 14} cy={anchor.y - 10} r={4} fill={C.mark} />
       </svg>
       <div
@@ -206,8 +206,8 @@ const ShipChip: React.FC<{ frame: number }> = ({ frame }) => {
           position: "absolute",
           left: L,
           top: T,
-          width: 620,
-          padding: "22px 26px",
+          width: 604,
+          padding: "20px 24px",
           borderRadius: 16,
           background: "rgba(26,28,31,0.92)",
           border: `1.5px solid ${C.lineStrong}`,
@@ -217,12 +217,12 @@ const ShipChip: React.FC<{ frame: number }> = ({ frame }) => {
         }}
       >
         <Label size={24}>Write this on the parcel</Label>
-        <div style={{ fontFamily: MONO, fontSize: 44, color: C.ink, marginTop: 8, letterSpacing: "0.02em", whiteSpace: "nowrap" }}>LL 4821 7730 9NO</div>
-        <div style={{ fontFamily: SANS, fontSize: 27, color: C.ink2, marginTop: 10 }}>
+        <div style={{ fontFamily: MONO, fontSize: 42, color: C.ink, marginTop: 8, letterSpacing: "0.02em", whiteSpace: "nowrap" }}>LL 4821 7730 9NO</div>
+        <div style={{ fontFamily: SANS, fontSize: 25, color: C.ink2, marginTop: 10, whiteSpace: "nowrap" }}>
           Leave it in your{" "}
           <span
             style={{
-              color: mark > 0.5 ? C.onMark : C.ink,
+              color: mark > 0.97 ? C.onMark : C.ink,
               backgroundImage: `linear-gradient(${C.mark}, ${C.mark})`,
               backgroundSize: `${mark * 100}% 100%`,
               backgroundRepeat: "no-repeat",
@@ -249,8 +249,8 @@ const PlaceTag: React.FC<{ frame: number; p: THREE.Vector3; who: string; city: s
     <div
       style={{
         position: "absolute",
-        left: s.x - w / 2,
-        top: s.y + 26,
+        left: clampX(s.x - w / 2, w),
+        top: s.y + 22,
         width: w,
         textAlign: "center",
         fontFamily: SANS,
@@ -269,7 +269,7 @@ const PlaceTag: React.FC<{ frame: number; p: THREE.Vector3; who: string; city: s
 const Delivered: React.FC<{ frame: number }> = ({ frame }) => {
   const show = prog(frame, LAND_AT + 1, 12, Easing.out(Easing.back(1.6)));
   if (show <= 0) return null;
-  const s = project(bergen.clone().add(v(0, 0.2, 0)), frame);
+  const s = project(bergen.clone().add(v(0, 0.14, 0)), frame);
   const w = 520;
   return (
     <div

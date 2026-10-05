@@ -13,7 +13,7 @@ import { ParcelJourney } from "./S8Sold";
 // Frame 0 = 56.6 s (177 frames). Beats: "Selger." 18, music hit 30, "Point." 49, "Shoot." 73,
 // boom 96 / "Sold." 97 (lands on the boom), fade to black from 169.
 const F = at(56.6);
-const SELGER = F(57.2);
+const SELGER = F(57.28);
 const HIT = F(57.6);
 const POINT = F(58.24);
 const SHOOT = F(59.04);
@@ -29,7 +29,7 @@ const TEXT_W = 486; // width of "Selger" at 160 px (checked on stills)
 const WORD_GAP = 36;
 const SLIDE = (WORD_GAP + TEXT_W) / 2; // the square's offset from its final spot when centred
 
-const shakeAt = (frame: number, start: number, dur: number, amp: number, seed: string) => {
+export const shakeAt = (frame: number, start: number, dur: number, amp: number, seed: string) => {
   const k = (frame - start) / dur;
   if (k < 0 || k >= 1) return [0, 0];
   const a = amp * (1 - k) ** 2;
@@ -80,7 +80,7 @@ const Backdrop: React.FC<{ frame: number; shake: number[] }> = ({ frame, shake }
   );
 };
 
-const Slam: React.FC<{ frame: number; at: number; fps: number; children: React.ReactNode; marked?: boolean }> = ({
+export const Slam: React.FC<{ frame: number; at: number; fps: number; children: React.ReactNode; marked?: boolean }> = ({
   frame,
   at: start,
   fps,
@@ -153,7 +153,9 @@ export const S9Punch: React.FC = () => {
         <AbsoluteFill
           style={{
             transformOrigin: `960px ${MARK_Y}px`,
-            transform: `scale(${1 - suckE * 0.985}) rotate(${suckE * 35}deg)`,
+            transform: `scale(${1 - suckE * 0.985}) rotate(${suckE * 22}deg)`,
+            // Fade the frame edges so the map reads as matter falling in, not a rotating picture.
+            maskImage: `radial-gradient(circle at 960px ${MARK_Y}px, #000 ${lerp(1250, 90, Math.sqrt(suck))}px, transparent ${lerp(1650, 460, Math.sqrt(suck))}px)`,
             filter: suckE > 0.02 ? `blur(${suckE * 12}px)` : undefined,
             opacity: 1 - interpolate(suck, [0.55, 0.95], [0, 1], clamp),
           }}

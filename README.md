@@ -1,61 +1,36 @@
-# Remotion + React Three Fiber Starter Template
+# Selger: launch video
 
-<p align="center">
-    <img src="demo.gif" style="border-radius: 5px">
-</p>
+The launch and stage video for **Selger**, an AI agent that sells second-hand items for you: you film the item, and it picks the best frames, identifies the product, prices it from comparable listings, posts it to FINN, eBay and Tise, answers buyers, negotiates within a floor you set, and calls you by phone when a buyer asks something it doesn't know.
 
-[This is a template repository, click "Use this template" to create a repository based off this template!](https://github.com/remotion-dev/remotion-template-three/generate)
+Selger was built by our team at a hackathon in San Francisco (October 2026). The agent itself lives in a separate repository. This repo is the video, which I made: it was the hackathon submission video and opened our live stage demo.
 
-This is a lightweight boilerplate for [Remotion](https://github.com/remotion-dev/remotion) with [React Three Fiber](https://github.com/pmndrs/react-three-fiber) and [@remotion/three](https://remotion.dev/docs/three) preinstalled.
+![Storyboard: frames from the first minute of the stage cut](docs/storyboard.jpg)
 
-- [Remotion documentation](https://remotion.dev)
-- [React Three Fiber documentation](https://docs.pmnd.rs/react-three-fiber)
-- [@remotion/three documentation](https://remotion.dev/docs/three)
+## What I did
 
-This example features a phone with a screen. You can easily switch out the video and change a series of parameters, like size, color, aspect ratio, corner radius etc. of the phone.
+- Script, storyboard and scene design (`docs/specs/2026-10-04-selger-launch-video.md`)
+- 3D scenes and motion graphics in code, including an interactive-looking map of Norway for the negotiation scene and recreated UI cards from the product's design system
+- Narration, the agent's phone call, music and sound effects generated with ElevenLabs, with word-level timestamps driving the captions
+- A stage cut that combines the video with screen recordings from the live demo
 
-You can also simply delete everything inside the canvas to start off with your own 3D project.
+## How it works
 
-## Commands
+- **Remotion** renders React components frame by frame into an MP4.
+- **React Three Fiber / three.js** draw the 3D scenes.
+- **ElevenLabs** generates voice-over (with timestamps), music and sound effects from scripts in `scripts/`.
+- `src/timing.ts` holds the timeline; `src/script.ts` holds every spoken line.
 
-**Install Dependencies**
-
-```console
-npm i --loglevel=error
-```
-
-**Start Preview**
+## Running it
 
 ```console
-npm run dev
+npm i
+npm run dev                         # Remotion Studio preview
+npx remotion render SelgerVideo     # render the launch video
+npx remotion render Stage           # render the stage cut
 ```
 
-**Render MP4 video**
+The generated audio is committed, so rendering does not need an API key. To regenerate audio, put `ELEVENLABS_API_KEY` in `.env` and run the scripts in `scripts/`.
 
-```console
-npx remotion render
-```
+## Stack
 
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
-
-The content of this template is licensed under MIT.
+TypeScript, React, Remotion 4, React Three Fiber, three.js, ElevenLabs API.
